@@ -6,7 +6,6 @@
 // https://on.cypress.io/writing-first-test
 /// <reference types="Cypress"/>
 
-
 describe('Central de Atendimento ao Cliente TAT', function(){
     beforeEach(function () {
         cy.visit('./src/index.html') 
