@@ -10,7 +10,7 @@ describe("VTurb", function () {
   before(() => {
     // Configura o Cypress para preservar cookies entre os testes
     Cypress.Cookies.defaults({
-      preserve: ["jwtToken"] // Substitua "jwtToken" pelo nome do seu cookie JWT
+      preserve: ["access_token"] // Substitua "jwtToken" pelo nome do seu cookie JWT
     });
   });
 
@@ -20,29 +20,15 @@ describe("VTurb", function () {
 
     // Certifique-se de que a página não será recarregada
     cy.server();
-    cy.route("POST", "**/api/login").as("loginRequest");
+    
   });
 
   it("Autenticação e Uso de Token JWT", function () {
     // Realiza a autenticação na aplicação
-    cy.get('input[name="email"]').type("contatoarqalexsoares@gmail.com");
-    cy.get('input[name="password"]').type("Alex3d0809@");
+    cy.get('input[name="email"]').type("mateusgomesbarros@hotmail.com");
+    cy.get('input[name="password"]').type("@Idontgive199");
     cy.contains("span", "Entrar").click();
-
-    // Aguarde a resposta da solicitação de login
-    cy.wait("@loginRequest").then((xhr) => {
-      // Obtenha o token JWT da resposta da solicitação de login
-      const token = xhr.response.body.token;
-
-      // Defina manualmente o cookie JWT
-      cy.setCookie("access_token", tokenJWT);
-    });
-
-    // Visite a página do painel após o login
-    cy.visit("https://login.vturb.com/dashboard");
-
-    // Agora você pode prosseguir com os testes que requerem o token JWT
-    // ...
+  
   });
 });
 

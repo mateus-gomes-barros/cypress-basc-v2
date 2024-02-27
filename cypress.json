@@ -2,10 +2,9 @@
     "pluginsFile": false,
     "viewportHeight": 880,
     "viewportWidth": 1280,
-  
     "chromeWebSecurity": false,
     "baseUrl": "https://login.vturb.com", 
     "fixturesFolder": false,
-    "testFiles": "CAC-TAT.spec.js"
+    "integrationFolder": "cypress/integration"
   }
   
